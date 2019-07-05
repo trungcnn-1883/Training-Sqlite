@@ -34,7 +34,7 @@ mà bạn cần phải ghi đè (override) nó là **onCreate()** và **onUpgrad
 
 -  Sử dụng ContentValues - class dùng để lưu list các giá trị theo key - value,theo  HashMap
 
-<img src="img/s1.png"/>
+<img src="img/s2.png"/>
 
 - **table**: tên bảng
 
@@ -47,9 +47,11 @@ Nếu truyền null: sẽ không  insert hàng khi không có giá trị nào
 
 - **values**: biến content values, nơi ta truyền dữ liệu vào bảng
 Ví dụ
-<img src="img/s2.png"/>
+<img src="img/s3.png"/>
 
 ### b. Update
+
+<img src="img/s4.png"/>
 
 - **table**: tên của bảng
 - **values**: content values, lưu tên cột - giá trị muốn update
@@ -58,9 +60,11 @@ Ví dụ
 ==> Trả về số dòng bị ảnh hưởng
 ### Ví dụ
 
-<img src="img/s3.png"/>
+<img src="img/s5.png"/>
 
 ### c. Remove
+
+<img src="img/s6.png"/>
 
 - **table**: tên của bảng
 
@@ -72,13 +76,13 @@ Ví dụ
 
 ### Ví dụ
 
-<img src="img/s4.png"/>
+<img src="img/s7.png"/>
 
 ### d. Query
 
 Để đọc dữ liệu từ database, ta sử dụng query(), kết quả sẽ trả về dưới dạng Cursor
 
-<img src="img/s5.png"/>
+<img src="img/s8.png"/>
 
 - **table**: tên bảng
 
@@ -111,7 +115,7 @@ Ví dụ
 
  ### 3 thành phần chính
 
-<img src="img/s5.png"/>
+<img src="img/s1.png"/>
 
 ### - Database:
 
@@ -195,19 +199,18 @@ Nhưng nếu làm theo thì database sẽ bị xóa hoàn toàn và không còn 
 
 Đổi version lên 2
 
-<img src="img/s6.png"/>
+<img src="img/s10.png"/>
 
 
 Trong trường hợp migration với schema thay đổi ít, sẽ phải dùng một số lệnh của SQL như ALTER để thay đổi tên hoặc thêm cột mới.
 
-<img src="img/s7.png"/>
+<img src="img/s8.png"/>
 
 Thêm trường date
 
 Đổi version lên 3
 
-<img src="img/s8.png"/>
-
+<img src="img/s9.png"/>
 
 Nếu thay đổi những cấu trúc phức tạp của schema, bạn cần thao tác thêm việc copy từ bảng cũ sang bảng mới bằng lệnh SQL được viết trong migration:
 Việc cập nhật theo từng phiên bản diễn ra theo trình tự trên, nhưng Room cũng hỗ trợ việc migration nhiều version lại với nhau, ví dụ ở đây chúng ta thực hiện việc migration từ version 1 tới 4 bằng tổng hợp một migration chung cho nhiều thay đổi như sau:
