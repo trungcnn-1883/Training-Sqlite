@@ -204,13 +204,13 @@ Nhưng nếu làm theo thì database sẽ bị xóa hoàn toàn và không còn 
 
 Trong trường hợp migration với schema thay đổi ít, sẽ phải dùng một số lệnh của SQL như ALTER để thay đổi tên hoặc thêm cột mới.
 
-<img src="img/s8.png"/>
+<img src="img/s9.png"/>
 
 Thêm trường date
 
 Đổi version lên 3
 
-<img src="img/s9.png"/>
+<img src="img/s11.png"/>
 
 Nếu thay đổi những cấu trúc phức tạp của schema, bạn cần thao tác thêm việc copy từ bảng cũ sang bảng mới bằng lệnh SQL được viết trong migration:
 Việc cập nhật theo từng phiên bản diễn ra theo trình tự trên, nhưng Room cũng hỗ trợ việc migration nhiều version lại với nhau, ví dụ ở đây chúng ta thực hiện việc migration từ version 1 tới 4 bằng tổng hợp một migration chung cho nhiều thay đổi như sau:
