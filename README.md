@@ -22,8 +22,8 @@ Nó được cài đặt như một thư viện nhỏ gọn và là một phần
 SQLite nổi tiếng là cơ sở dữ liệu cực kỳ đáng tin cậy và là sự lựa chọn cho nhiều thiết bị điện tự bao gồm máy nghe nhạc MP3, Iphone, iPod về hệ thống cơ sở dữ liệu.
 
 ## II. Các thao tác Add, update, remove row với DB
-### 1. Tạo một lớp tiện ích để làm việc với cơ sở dữ liệu SQLite, lớp này nên mở rộng từ lớp SQLiteOpenHelper. Có 2 phương thức quan trọng 
-mà bạn cần phải ghi đè (override) nó là **onCreate()** và **onUpgrade()**.
+### 1. Tạo một lớp tiện ích để làm việc với cơ sở dữ liệu SQLite, lớp này nên mở rộng từ lớp SQLiteOpenHelper.
+Có 2 phương thức quan trọng mà bạn cần phải ghi đè (override) nó là **onCreate()** và **onUpgrade()**.
 
 **onCreate()** - Những là nơi mà chúng ta cần phải viết để tạo bảng. Nó được gọi (called) khi cơ sở dữ liệu được tạo ra.
 
