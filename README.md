@@ -352,9 +352,48 @@ interface UserDao {
 }
 ```
 
+-----------------------------------------------------------------------------------------------------------------------
 
+## Transaction
 
+### 2. Tìm hiểu về transaction của SQLite
 
+Transaction trong SQLite là một đơn vị công việc được thực hiện bởi một Database. Transaction là đơn vị hoặc dãy công việc được thực hiện theo một thứ tự logic và hợp lý, có thể được thao tác bởi người dùng hoặc bởi một Database program.
+
+Thực tế, bạn sẽ tập hợp nhiều truy vấn SQLite vào trong một nhóm và sẽ thực thi tất cả truy vấn này cùng với nhau như là một phần của một transaction.
+
+Điều khiển Transaction trong SQLite
+Trong SQLite, có các lệnh sau được sử dụng để điều khiển transaction:
+
+BEGIN TRANSACTION: Để bắt đầu một Transaction.
+
+COMMIT: để lưu thay đổi, bạn thể sử dụng lệnh END TRANSACTION để thay thế.
+
+ROLLBACK: để quay trở lại trạng thái trước khi có thay đổi.
+
+### 3. Các cách thức để tối ưu câu lệnh truy vấn, nâng cao perfomance của tương tác với SQLite
+
+- Chỉ lấy ra dữ liệu cần thiết: cần thông tin nào thì lấy ra thông tin đó, lọc những thông tin cần thiết
+
+- Giới hạn kết quả trả về: chỉ lấy vs số lượng cần cho việc xử lý
+
+- Không làm cho truy vấn phức tạp hơn mức cần thiết, tối ưu câu lệnh truy vấn
+
+- Ràng buộc điều kiện một cách hợp lý
+
+Nâng cao performance tương tác vs Sqlite: dùng transaction
+
+Theo bài viết sau: https://medium.com/@JasonWyatt/squeezing-performance-from-sqlite-insertions-971aff98eef2
+
+### Mỗi câu lệnh tương tác vs db thì chúng sẽ đều dk tạo 1 transaction
+
+db.insert(): tự tạo transaction sẽ làm giảm số transaction sẽ tạo để truy suất đến db
+
+Việc sử dụng transaction cho insert có thể làm cho tăng tốc độ lên hơn 10 lần :D 
+
+db.execSQL(): có thể dùng câu lệnh câu lệnh sql insert thay cho hàm insert, việc này cũng giúp bớt đi được thời gian insert
+
+Ngoài ra có thể dùng SQLiteStatement , batch, giúp cho tốc độ tăng lên rất nhiều lần
 
 
 
