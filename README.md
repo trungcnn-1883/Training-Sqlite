@@ -395,6 +395,24 @@ db.execSQL(): có thể dùng câu lệnh câu lệnh sql insert thay cho hàm i
 
 Ngoài ra có thể dùng SQLiteStatement , batch, giúp cho tốc độ tăng lên rất nhiều lần
 
+Việc sử dụng transaction cần phải hiểu ý nghĩa và không nên lạm dụng.
+
+### 4. Tìm hiểu thêm về việc nhiều luồng cùng thực hiện truy vấn hoặc cùng thực hiện việc thay đổi database
+
+Việc cùng thực hiện thay đổi, truy vấn database sẽ khiến dữ liệu không được chính xác, đưa ra kết quả sai, có thể gây ra hậu quả lớn
+
+Có nhiều giải pháp như cơ chế đồng bộ, lock, deadlock, ...
+
+SQL Server nói riêng và các database quan hệ nói chung là dạng database có độ nhất quán dữ liệu cao nhất. Dữ liệu trong database luôn ở dạng consistency tại mọi thời điểm. Nghĩa là với cùng một dữ liệu thì không thể có việc đọc ghi tại cùng một thời điểm. Việc đọc ghi cùng một dữ liệu sẽ dẫn tới hiện tượng lock lẫn nhau để đảm bảo dữ liệu được consistency.
+
+Lệnh Select sẽ xung đột với các lệnh Update, Insert, Delete. Vì các lệnh Update, Insert, Delete làm thay đổi dữ liệu của một table do đó tại một thời điểm nếu thực hiện lệnh select thì sẽ không thể insert, update, delete trên cùng một table hoặc ngược lại. Điều này rất quan trọng, vì nếu không lock dữ liệu thì sẽ dẫn tới việc đọc dữ liệu ra sai so với thực tế.
+
+Các lệnh Insert, Update, Delete lock theo row không lock theo table. Nghĩa là có thể thực hiện đồng thời các lệnh đó trên cùng một table miễn là chúng không tranh chấp nhau cùng một row dữ liệu. Lock để đảm bảo tính consistency data là một trong các ưu điểm nổi bật của cơ sở dữ liệu quan hệ.
+
+Có các cơ chế lock, deadlock
+
+
+
 
 
 
