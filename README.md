@@ -356,6 +356,19 @@ interface UserDao {
 
 ## Transaction
 
+### 1. Limit transaction của sqlite
+
+- Về việc insert dữ liệu
+
+Không có giới hạn thực tế về số lần insert trên mỗi giao dịch. 
+
+Nó phụ thuộc vào dung lượng bộ nhớ, tốc độ xử lý của phần cứng, ...
+
+Việc insert có thể tới hàng trăm nghìn dòng, nhưng vẫn có thể hoạt động tốt
+
+Người tạo ra SQLite, D.Richard Hipp thậm chí còn gợi ý mở transaction khi chương trình bắt đầu, làm tất cả mọi việc trong thời gian dài, và chỉ commit khi thoát hoặc muốn lưu lại trạng thái.
+
+
 ### 2. Tìm hiểu về transaction của SQLite
 
 Transaction trong SQLite là một đơn vị công việc được thực hiện bởi một Database. Transaction là đơn vị hoặc dãy công việc được thực hiện theo một thứ tự logic và hợp lý, có thể được thao tác bởi người dùng hoặc bởi một Database program.
