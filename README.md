@@ -159,7 +159,7 @@ Tại  runtime, có thể lấy instance của  Database bằng cách gọi  Roo
 - **inMemoryDatabaseBuilder**: sẽ được tạo trong bộ nhớ hệ thống, nếu kill app thì database sẽ bị xóa đi, data sẽ không được lưu lại. Thường dùng để test
 
 ### Về allowMainThreadQueries
-Room không hỗ trợ truy cập database trên main thread chỉ khi dùng **allowMainThreadQueries**. Bởi vì có thể nó sẽ lock UI trong thời gian dài, gây ra lỗi ARN. 
+Room không hỗ trợ truy cập database trên main thread chỉ khi dùng **allowMainThreadQueries**. Bởi vì có thể nó sẽ lock UI trong thời gian dài, gây ra lỗi ANR. 
 Query bất đồng bộ (Asynchronous queries), query trả về instance của LiveData hoặc Flowable sẽ khắc phục được điều này.
 
 Vs **sqlite** cũng có thể làm bất đồng bộ như sử dụng AsynTask, Handler, Thread,  CursorLoader, ...
