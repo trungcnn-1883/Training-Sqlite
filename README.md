@@ -373,6 +373,16 @@ Việc insert có thể tới hàng trăm nghìn dòng, nhưng vẫn có thể h
 
 Người tạo ra SQLite, D.Richard Hipp thậm chí còn gợi ý mở transaction khi chương trình bắt đầu, làm tất cả mọi việc trong thời gian dài, và chỉ commit khi thoát hoặc muốn lưu lại trạng thái.
 
+SQlite có thể dễ dàng insert 50000 hoặc hơn dòng dữ liệu mỗi giây trên một máy tính trung bình. Nhưng chỉ có thể thực hiện một vài tá transaction mỗi giây. Tốc độ giao dịch bị giới hạn bởi tốc độ quay của ổ đĩa của bạn
+
+Tốc độ giao dịch bị giới hạn bởi tốc độ ổ đĩa vì (theo mặc định) SQLite thực sự đợi cho đến khi dữ liệu thực sự được lưu trữ an toàn trên bề mặt đĩa trước khi giao dịch hoàn tất. Bằng cách đó, nếu bạn đột nhiên mất điện hoặc nếu hệ điều hành của bạn gặp sự cố, dữ liệu của bạn vẫn an toàn
+
+----------------------
+Tham khảo: câu 19
+
+https://www.sqlite.org/faq.html
+
+----------------------
 
 ### 2. Tìm hiểu về transaction của SQLite
 
