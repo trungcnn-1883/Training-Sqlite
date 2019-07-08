@@ -21,6 +21,10 @@ Nó được cài đặt như một thư viện nhỏ gọn và là một phần
  Mỗi cơ sở dữ liệu sẽ trở thành một phần được tích hợp trong ứng dụng. Điều này giúp làm giảm sự phụ thuộc vào bên ngoài, tối thiểu độ trễ và đơn giản hóa các giao dịch và đồng bộ.
 SQLite nổi tiếng là cơ sở dữ liệu cực kỳ đáng tin cậy và là sự lựa chọn cho nhiều thiết bị điện tự bao gồm máy nghe nhạc MP3, Iphone, iPod về hệ thống cơ sở dữ liệu.
 
+Tool xem, sửa, ... csdl sqlite
+
+https://sqlitebrowser.org/
+
 ## II. Các thao tác Add, update, remove row với DB
 ### 1. Tạo một lớp tiện ích để làm việc với cơ sở dữ liệu SQLite, lớp này nên mở rộng từ lớp SQLiteOpenHelper.
 Có 2 phương thức quan trọng mà bạn cần phải ghi đè (override) nó là **onCreate()** và **onUpgrade()**.
