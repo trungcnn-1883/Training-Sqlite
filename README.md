@@ -126,6 +126,11 @@ chứa database holder và phục vụ như một điểm truy cập chính tớ
 - **DAO (Data Access Object)**: chứa các phương thức để truy cập tới dữ liệu 
 
 ### d. Chi tiết
+
+Demo:
+
+https://github.com/trungcnn-1883/Training-Room
+
 ### Entity: 
 
 - Sử dụng anotation @Entity, tạo ra bảng tương ứng trong CSDL
