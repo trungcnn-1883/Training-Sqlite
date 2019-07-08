@@ -334,7 +334,19 @@ Và giờ nếu Single được kết thúc, việc thêm data mới hoặc upda
 Nếu bạn có nhu cầu phải lưu trữ và truy xuất một số loại ngày giờ. Room không cung cấp cho bạn bất kì hỗ trợ nào, nhưng thay vào đó lại cung cấp annotation @TypeConverter để map giữa những đối tượng phức tạp về dạng mà Room có thể hiểu được và ngược lại.
 
 Dưới đây sử dụng class Converters để có thể convert time ở dạng Long về Date và ngược lại:
+```
+class Converters {
+    @TypeConverter
+    fun fromTimestamp(value: Long?): Date? {
+        return value?.let { Date(it) }
+    }
 
+    @TypeConverter
+    fun dateToTimestamp(date: Date?): Long? {
+        return date?.time?.toLong()
+    }
+}
+```
 Sau đó khai báo các lớp Converter cần thiết vào trong Database Room lúc khởi tạo:
 
 ```
